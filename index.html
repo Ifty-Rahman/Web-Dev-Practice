@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Development Practice Projects</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Arial", sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            .container {
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 20px;
+                padding: 40px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                max-width: 1000px;
+                width: 100%;
+            }
+
+            h1 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 30px;
+                font-size: 2.5em;
+                font-weight: 300;
+            }
+
+            .subtitle {
+                text-align: center;
+                color: #666;
+                margin-bottom: 40px;
+                font-size: 1.2em;
+            }
+
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .project-card {
+                background: white;
+                border-radius: 15px;
+                padding: 25px;
+                text-align: center;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+            .project-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+                border-color: #667eea;
+            }
+
+            .project-link {
+                text-decoration: none;
+                color: #333;
+                display: block;
+            }
+
+            .project-title {
+                font-size: 1.3em;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: #444;
+            }
+
+            .project-description {
+                color: #666;
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+
+            .project-icon {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+                display: block;
+            }
+
+            footer {
+                text-align: center;
+                margin-top: 40px;
+                color: #666;
+                font-size: 0.9em;
+            }
+
+            @media (max-width: 600px) {
+                .container {
+                    padding: 25px;
+                }
+
+                h1 {
+                    font-size: 2em;
+                }
+
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Web Development Practice</h1>
+            <p class="subtitle">
+                A collection of projects built while learning web development
+            </p>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <a href="Web Design Agency/index.html" class="project-link">
+                        <div class="project-icon">🎨</div>
+                        <div class="project-title">Web Design Agency</div>
+                        <div class="project-description">
+                            Professional agency website design and layout
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="Pricing Table/index.html" class="project-link">
+                        <div class="project-icon">💰</div>
+                        <div class="project-title">Pricing Table</div>
+                        <div class="project-description">
+                            Clean and modern pricing table layout with CSS
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="TinDog Project/index.html" class="project-link">
+                        <div class="project-icon">🐕</div>
+                        <div class="project-title">TinDog Project</div>
+                        <div class="project-description">
+                            Dating app landing page for dogs using Bootstrap
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="Dice Game/index.html" class="project-link">
+                        <div class="project-icon">🎲</div>
+                        <div class="project-title">Dice Game</div>
+                        <div class="project-description">
+                            A fun dice rolling game built with JavaScript
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="Drum Kit/index.html" class="project-link">
+                        <div class="project-icon">🥁</div>
+                        <div class="project-title">Drum Kit</div>
+                        <div class="project-description">
+                            Interactive drum kit that responds to keyboard and
+                            mouse inputs
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a
+                        href="Simon Game Challenge/index.html"
+                        class="project-link"
+                    >
+                        <div class="project-icon">🔴</div>
+                        <div class="project-title">Simon Game Challenge</div>
+                        <div class="project-description">
+                            Memory game where you repeat sequences of colors and
+                            sounds using JavaScript
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <footer>
+                <p>Hope it helps you learn something new! 🚀</p>
+            </footer>
+        </div>
+    </body>
+</html>
