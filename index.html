@@ -100,6 +100,57 @@
                 margin-top: 40px;
                 color: #666;
                 font-size: 0.9em;
+                padding: 20px 0;
+                border-top: 1px solid #eee;
+            }
+
+            .footer-content {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .tech-stack {
+                margin: 15px 0;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .tech-badge {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 0.8em;
+                font-weight: 500;
+            }
+
+            .github-link {
+                color: #667eea;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+
+            .github-link:hover {
+                color: #764ba2;
+                text-decoration: underline;
+            }
+
+            .footer-links {
+                margin: 10px 0;
+            }
+
+            .footer-links a {
+                color: #666;
+                text-decoration: none;
+                margin: 0 10px;
+                transition: color 0.3s ease;
+            }
+
+            .footer-links a:hover {
+                color: #667eea;
             }
 
             @media (max-width: 600px) {
@@ -192,7 +243,40 @@
             </div>
 
             <footer>
-                <p>Hope it helps you learn something new! 🚀</p>
+                <div class="footer-content">
+                    <p style="margin-bottom: 15px">
+                        Built with passion for learning web development 🚀
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Bootstrap</span>
+                    </div>
+
+                    <div class="footer-links">
+                        <a
+                            href="https://github.com/ifty-rahman/Web-Dev-Practice"
+                            target="_blank"
+                            class="github-link"
+                        >
+                            📂 View on GitHub
+                        </a>
+                        <span>•</span>
+                        <a
+                            href="https://ifty-rahman.github.io/Web-Dev-Practice/"
+                            target="_blank"
+                        >
+                            🌐 Live Demo
+                        </a>
+                    </div>
+
+                    <p style="margin-top: 15px; font-size: 0.8em; color: #888">
+                        © 2024 Web Development Practice Projects | Created for
+                        learning purposes
+                    </p>
+                </div>
             </footer>
         </div>
     </body>
