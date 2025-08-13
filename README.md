@@ -13,7 +13,7 @@ A collection of interactive web development projects built while learning HTML, 
 - 🥁 **Drum Kit** - Interactive virtual drum kit
 - 🔴 **Simon Game** - Memory sequence game using JS
 
-## 🚀 Running Node.js Projects
+## Running Node.js Projects
 
 Some projects in this collection use Node.js
 
