@@ -21,25 +21,6 @@ A modern, responsive blog application built with Node.js, Express.js, and EJS. T
 - **Icons**: Font Awesome
 - **Fonts**: Inter (Google Fonts)
 
-## Project Structure
-
-```
-Blog Post/
-├── index.js              # Main server file
-├── package.json          # Dependencies and scripts
-├── README.md            # This file
-├── views/               # EJS templates
-│   ├── layout.ejs       # Main layout template
-│   ├── index.ejs        # Home page template
-│   ├── new.ejs          # New post form template
-│   ├── post.ejs         # Individual post view template
-│   ├── edit.ejs         # Edit post form template
-│   └── error.ejs        # Error page template
-└── public/              # Static assets
-    └── css/
-        └── style.css    # Main stylesheet
-```
-
 ## Installation & Setup
 
 1. **Navigate to the project directory**:
@@ -56,7 +37,7 @@ Blog Post/
    ```bash
    npm run dev
    ```
-   
+
    Or start the production server:
    ```bash
    npm start
@@ -108,31 +89,6 @@ This application uses in-memory storage, which means:
 - No database setup is required
 - Perfect for development and testing
 
-## Customization
-
-### Styling
-The application uses a modern design with:
-- Gradient backgrounds
-- Smooth hover animations
-- Responsive grid layout
-- Professional typography
-
-You can customize the appearance by modifying `public/css/style.css`.
-
-### Adding Features
-The modular structure makes it easy to add new features:
-- Add new routes in `index.js`
-- Create new EJS templates in `views/`
-- Extend the CSS for new components
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
 ## Development
 
 To run the application in development mode with auto-restart:
@@ -141,7 +97,3 @@ npm run dev
 ```
 
 This uses nodemon to automatically restart the server when files change.
-
-## License
-
-This project is open source and available under the MIT License.
