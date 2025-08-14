@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="form-container">
+        <div class="form-header">
+            <h1 class="form-title">Create New Post</h1>
+            <p class="form-subtitle">Share your thoughts with the world</p>
+        </div>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form class="post-form" method="POST" action="/posts">
+            <div class="form-group">
+                <label for="title" class="form-label">Title</label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    class="form-input" 
+                    placeholder="Enter your post title"
+                    value="<%= typeof formData !== 'undefined' && formData.title ? formData.title : '' %>"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="author" class="form-label">Author</label>
+                <input 
+                    type="text" 
+                    id="author" 
+                    name="author" 
+                    class="form-input" 
+                    placeholder="Enter your name"
+                    value="<%= typeof formData !== 'undefined' && formData.author ? formData.author : '' %>"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="content" class="form-label">Content</label>
+                <textarea 
+                    id="content" 
+                    name="content" 
+                    class="form-textarea" 
+                    placeholder="Write your blog post content here..."
+                    rows="10"
+                    required
+                ><%= typeof formData !== 'undefined' && formData.content ? formData.content : '' %></textarea>
+            </div>
+
+            <div class="form-actions">
+                <a href="/" class="btn btn-outline">Cancel</a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i>
+                    Create Post
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
