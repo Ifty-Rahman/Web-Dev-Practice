@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="bn">
+    <head>
+        <meta charset="UTF-8" />
+        <title>সোহেল টিম্বার - ক্যাশ মেমো</title>
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            function printBill() {
+                window.print();
+            }
+        </script>
+        <script>
+            function getBengaliDate() {
+                const days = [
+                    "রবিবার",
+                    "সোমবার",
+                    "মঙ্গলবার",
+                    "বুধবার",
+                    "বৃহস্পতিবার",
+                    "শুক্রবার",
+                    "শনিবার",
+                ];
+                const months = [
+                    "জানুয়ারি",
+                    "ফেব্রুয়ারি",
+                    "মার্চ",
+                    "এপ্রিল",
+                    "মে",
+                    "জুন",
+                    "জুলাই",
+                    "আগস্ট",
+                    "সেপ্টেম্বর",
+                    "অক্টোবর",
+                    "নভেম্বর",
+                    "ডিসেম্বর",
+                ];
+                const bengaliDigits = [
+                    "০",
+                    "১",
+                    "২",
+                    "৩",
+                    "৪",
+                    "৫",
+                    "৬",
+                    "৭",
+                    "৮",
+                    "৯",
+                ];
+
+                function toBengaliNumber(num) {
+                    return num
+                        .toString()
+                        .split("")
+                        .map((d) => bengaliDigits[parseInt(d, 10)] || d)
+                        .join("");
+                }
+
+                const today = new Date();
+                const dayName = days[today.getDay()];
+                const date = toBengaliNumber(today.getDate());
+                const monthName = months[today.getMonth()];
+                const year = toBengaliNumber(today.getFullYear());
+
+                return `${dayName}, ${date} ${monthName}, ${year}`;
+            }
+
+            window.onload = function () {
+                document.getElementById("invoice-date").innerText =
+                    `তারিখ : ${getBengaliDate()}`;
+            };
+        </script>
+    </head>
+    <body style="padding-top: 20px">
+        <div class="header">
+            <p style="color: chocolate; font-size: 0.8">
+                বিসমিল্লাহির রাহমানির রাহিম
+            </p>
+            <p style="color: green; font-size: 0.8">ক্যাশ মেমো</p>
+            <p
+                style="
+                    color: red;
+                    font-size: 2.3rem;
+                    text-decoration: underline;
+                "
+            >
+                <img
+                    src="tree.png"
+                    alt="tree"
+                    style="
+                        position: absolute;
+                        top: 32px;
+                        left: 595px;
+                        width: 70px;
+                        height: auto;
+                    "
+                />
+                মেসার্স সোহেল টিম্বার এন্ড ট্রলি স’ মিল
+                <img
+                    src="tree.png"
+                    alt="tree"
+                    style="
+                        position: absolute;
+                        top: 32px;
+                        left: 1260px;
+                        width: 70px;
+                        height: auto;
+                    "
+                />
+            </p>
+            <p class="prop">প্রো: মো: সাইফুল ইসলাম (সোহেল)</p>
+            <p style="color: darkgreen; font-size: 0.8rem">
+                এখানে বিদেশ থেকে আমদানিকৃত বার্মাটিক সেগুন, লোহা, গর্জন, শাল,
+                গামারি, আওয়াল, কাঁঠাল,<br />
+                শীল কড়ই, চম্পাফুল, চাম্পলিশ, আকাশী ও মেহগনি পাথ পাইকারি ও খুচরা
+                বিক্রয় করা হয়
+            </p>
+            <p style="color: orangered; font-size: 0.8rem">
+                ঠিকানা: চিলোকুট দক্ষিণ পাড়া ডি.সি. রোড, ফকির বাড়ির মাজার
+                সংলগ্ন, বি-বাড়িয়া<br />
+                মোবাইল: 01719-109810, 01757-728345
+            </p>
+        </div>
+
+        <div class="info">
+            <div class="info-left">
+                <p style="color: green; margin-bottom: 0px">
+                    ক্রেতার নাম:
+                    <input
+                        type="text"
+                        name="customerName"
+                        placeholder="নাম লিখুন"
+                        style="
+                            font-family: inherit;
+                            font-size: inherit;
+                            width: 350px;
+                            padding-left: 5px;
+                        "
+                    />
+                </p>
+                <p
+                    style="
+                        color: red;
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        padding-top: 5px;
+                        padding-bottom: 10px;
+                    "
+                >
+                    ক্রেতার ঠিকানা:
+                    <input
+                        type="text"
+                        name="customerAddress"
+                        placeholder="ঠিকানা লিখুন"
+                        style="
+                            font-family: inherit;
+                            font-size: inherit;
+                            width: 350px;
+                            padding-left: 5px;
+                        "
+                    />
+                </p>
+            </div>
+            <div class="info-right">
+                <p id="invoice-date" style="color: chocolate"></p>
+            </div>
+        </div>
+
+        <div class="bill">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="color: royalblue">মালের বিবরণ</th>
+                        <th style="color: green">পরিমাণ</th>
+                        <th style="color: red">দর</th>
+                        <th style="color: orange">টাকা</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="first">
+                        <td rowspan="4">
+                            <textarea
+                                name="wood"
+                                placeholder="মালের বিবরণ লিখুন"
+                                style="
+                                    font-family: inherit;
+                                    font-size: 1.3rem;
+                                    width: 92%;
+                                    height: 97%;
+                                    text-align: center;
+                                    resize: none;
+                                "
+                            ></textarea>
+                        </td>
+                        <td rowspan="4">
+                            <textarea
+                                name="wood"
+                                placeholder="পরিমাণ লিখুন"
+                                style="
+                                    font-family: inherit;
+                                    font-size: 1.3rem;
+                                    width: 92%;
+                                    height: 97%;
+                                    text-align: center;
+                                    resize: none;
+                                "
+                            ></textarea>
+                        </td>
+                        <td>
+                            <textarea
+                                name="wood"
+                                placeholder="দর লিখুন"
+                                style="
+                                    font-family: inherit;
+                                    font-size: 1.3rem;
+                                    width: 92%;
+                                    height: 97%;
+                                    text-align: center;
+                                    resize: none;
+                                "
+                            ></textarea>
+                        </td>
+                        <td>
+                            <textarea
+                                name="wood"
+                                placeholder="টাকা লিখুন"
+                                style="
+                                    font-family: inherit;
+                                    font-size: 1.3rem;
+                                    width: 92%;
+                                    height: 97%;
+                                    text-align: center;
+                                    resize: none;
+                                "
+                            ></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="
+                                color: darkgreen;
+                                font-size: 1.3rem;
+                                font-weight: bold;
+                            "
+                        >
+                            মোট:
+                        </td>
+                        <td>
+                            <input
+                                type="text"
+                                name="total"
+                                placeholder="মোট টাকা"
+                                style="
+                                    font-family: inherit;
+                                    font-size: 1.3rem;
+                                    width: 95%;
+                                    text-align: center;
+                                "
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="
+                                color: red;
+                                font-size: 1.3rem;
+                                font-weight: bold;
+                            "
+                        >
+                            জমা:
+                        </td>
+                        <td>
+                            <input
+                                type="text"
+                                name="total"
+                                placeholder="মোট জমা"
+                                style="
+                                    font-family: inherit;
+                                    font-size: 1.3rem;
+                                    width: 95%;
+                                    text-align: center;
+                                "
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="
+                                color: blue;
+                                font-size: 1.3rem;
+                                font-weight: bold;
+                            "
+                        >
+                            বাকি:
+                        </td>
+                        <td>
+                            <input
+                                type="text"
+                                name="total"
+                                placeholder="বাকি টাকা"
+                                style="
+                                    font-family: inherit;
+                                    font-size: 1.3rem;
+                                    width: 95%;
+                                    text-align: center;
+                                "
+                            />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <p
+                style="
+                    font-size: 1.5rem;
+                    margin: 0px;
+                    padding-top: 2px;
+                    color: blue;
+                    font-weight: bold;
+                "
+            >
+                কথায়:
+                <input
+                    type="text"
+                    name="inWord"
+                    placeholder="কথায় লিখুন"
+                    style="
+                        font-family: inherit;
+                        font-size: inherit;
+                        width: 350px;
+                        padding-left: 5px;
+                    "
+                />
+            </p>
+        </div>
+
+        <div class="signatures" style="font-size: 1.5rem; font-weight: bold">
+            <span
+                style="
+                    color: red;
+                    display: inline-block;
+                    border-top: 5px solid red;
+                    padding-top: 8px;
+                    width: 180px; /* Set your desired width */
+                    text-align: center; /* Optional: center the text */
+                "
+            >
+                ক্রেতার স্বাক্ষর
+            </span>
+            <span
+                style="
+                    color: darkgreen;
+                    display: inline-block;
+                    border-top: 5px solid darkgreen;
+                    padding-top: 8px;
+                    width: 180px; /* Set your desired width */
+                    text-align: center; /* Optional: center the text */
+                "
+            >
+                বিক্রেতার স্বাক্ষর
+            </span>
+        </div>
+
+        <div class="print-btn">
+            <button onclick="printBill()">🖨️ Print Bill</button>
+        </div>
+    </body>
+</html>

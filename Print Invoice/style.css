@@ -1,0 +1,128 @@
+@page {
+    size: A4;
+}
+
+body {
+    font-family: "Noto Sans Bengali", Arial, sans-serif;
+    width: 210mm;
+    min-height: 297mm;
+    background: #fff;
+    color: #000;
+}
+
+.header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.header p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.prop {
+    background: blue;
+    border-radius: 12px;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.2rem;
+    color: orange;
+}
+
+@media print {
+    input {
+        border: none;
+    }
+    textarea {
+        border: none;
+    }
+    @media print {
+        .prop {
+            background: blue !important;
+            border-radius: 12px !important;
+            display: inline-block !important;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+            font-size: 1.2rem !important;
+            color: orange !important;
+            -webkit-print-color-adjust: exact !important; /* For Chrome/Safari */
+            print-color-adjust: exact !important; /* For Firefox */
+        }
+    }
+}
+
+.info {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-right {
+    display: flex;
+    align-items: start;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table,
+th,
+td {
+    border: 2px solid black;
+    padding-top: 5px;
+}
+
+th {
+    font-size: 1.4rem;
+}
+
+td {
+    vertical-align: top;
+    text-align: center;
+}
+
+.bill td:nth-child(2),
+.bill td:nth-child(3),
+.bill td:nth-child(4) {
+    width: 120px; /* Adjust as needed */
+}
+
+.first td {
+    height: 500px;
+    padding-top: 15px;
+}
+.signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    font-size: 15px;
+}
+
+.print-btn {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.print-btn button {
+    font-size: 16px;
+    padding: 10px 25px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.print-btn button:hover {
+    background: #0056b3;
+}
+
+/* Hide print button in actual PDF/print */
+@media print {
+    .print-btn {
+        display: none;
+    }
+}
