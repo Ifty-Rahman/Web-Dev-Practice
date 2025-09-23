@@ -11,13 +11,9 @@
     }
     .page {
         margin: 0;
-        border: initial;
-        border-radius: initial;
         width: initial;
         min-height: initial;
-        box-shadow: initial;
         background: initial;
-        page-break-after: always;
     }
     input {
         border: none;
@@ -54,12 +50,11 @@ body {
 .page {
     width: 210mm;
     min-height: 297mm;
-    padding: 5mm;
+    padding-top: 15mm;
+    padding-right: 15mm;
+    padding-left: 15mm;
     margin: auto;
-    border: 1px #d3d3d3 solid;
-    border-radius: 5px;
     background: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
@@ -86,13 +81,13 @@ body {
 .info {
     font-size: 1.1rem;
     font-weight: bold;
-    display: flex;
-    justify-content: space-between;
+    position: relative;
 }
 
 .info-right {
-    display: flex;
-    align-items: start;
+    position: absolute;
+    bottom: 23px;
+    left: 520px;
 }
 
 table {
@@ -118,11 +113,11 @@ td {
 .bill td:nth-child(2),
 .bill td:nth-child(3),
 .bill td:nth-child(4) {
-    width: 120px; /* Adjust as needed */
+    width: 140px; /* Adjust as needed */
 }
 
 .first td {
-    height: 500px;
+    height: 580px;
     padding-top: 15px;
 }
 .signatures {
@@ -134,7 +129,9 @@ td {
 
 .print-btn {
     text-align: center;
-    margin-top: 60px;
+    position: absolute;
+    top: 1000px;
+    left: 900px;
 }
 
 .print-btn button {
