@@ -3,29 +3,24 @@ import Card from "./Card";
 import contacts from "../contacts";
 import Avatar from "./Avatar";
 
+function createCard(contact) {
+  return (
+    <Card
+      key={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      tel={contact.phone}
+      email={contact.email}
+    />
+  );
+}
+
 function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
-      <Avatar img="https://pbs.twimg.com/profile_images/744849215675838464/IH0FNIXk.jpg" />
-      <Card
-        name={contacts[0].name}
-        img={contacts[0].imgURL}
-        tel={contacts[0].phone}
-        email={contacts[0].email}
-      />
-      <Card
-        name={contacts[1].name}
-        img={contacts[1].imgURL}
-        tel={contacts[1].phone}
-        email={contacts[1].email}
-      />
-      <Card
-        name={contacts[2].name}
-        img={contacts[2].imgURL}
-        tel={contacts[2].phone}
-        email={contacts[2].email}
-      />
+      <Avatar img="https://img.redbull.com/images/c_crop,x_1007,y_0,h_2646,w_1985/c_fill,w_450,h_600/q_auto,f_auto/redbullcom/2024/11/24/nrqoxx9as35r5ry8ashm/max-verstapen-2024-f1-world-champion-four" />
+      {contacts.map(createCard)}
     </div>
   );
 }
