@@ -35,6 +35,9 @@
     .print-btn {
         display: none;
     }
+    .date-picker {
+        display: none;
+    }
 }
 
 body {
@@ -94,7 +97,7 @@ body {
     font-size: 1.1rem;
 }
 
-.info-right {
+.date-picker {
     position: absolute;
     top: 272px;
     left: 925px;
