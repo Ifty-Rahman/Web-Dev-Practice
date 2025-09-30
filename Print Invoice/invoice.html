@@ -107,7 +107,6 @@
                 </p>
             </div>
             <script>
-                // Mapping of Western digits to Bengali digits
                 const bengaliDigits = [
                     "০",
                     "১",
@@ -120,6 +119,29 @@
                     "৮",
                     "৯",
                 ];
+                const bengaliWeekdays = [
+                    "রবিবার",
+                    "সোমবার",
+                    "মঙ্গলবার",
+                    "বুধবার",
+                    "বৃহস্পতিবার",
+                    "শুক্রবার",
+                    "শনিবার",
+                ];
+                const bengaliMonths = [
+                    "জানুয়ারি",
+                    "ফেব্রুয়ারি",
+                    "মার্চ",
+                    "এপ্রিল",
+                    "মে",
+                    "জুন",
+                    "জুলাই",
+                    "আগস্ট",
+                    "সেপ্টেম্বর",
+                    "অক্টোবর",
+                    "নভেম্বর",
+                    "ডিসেম্বর",
+                ];
 
                 function toBengaliNumber(str) {
                     return str.replace(/\d/g, (d) => bengaliDigits[d]);
@@ -130,14 +152,18 @@
                     .addEventListener("input", function () {
                         const value = this.value; // Format: yyyy-mm-dd
                         if (value) {
-                            // Convert each part to Bengali
-                            const parts = value.split("-");
-                            if (parts.length === 3) {
-                                const bengaliDate = `${toBengaliNumber(parts[2])}-${toBengaliNumber(parts[1])}-${toBengaliNumber(parts[0])}`;
-                                document.querySelector(
-                                    "#bengali-date p",
-                                ).textContent = `তারিখ: ${bengaliDate}`;
-                            }
+                            const [year, month, day] = value
+                                .split("-")
+                                .map(Number);
+                            const dateObj = new Date(year, month - 1, day);
+                            const weekday = bengaliWeekdays[dateObj.getDay()];
+                            const bengaliDay = toBengaliNumber(String(day));
+                            const bengaliMonth = bengaliMonths[month - 1];
+                            const bengaliYear = toBengaliNumber(String(year));
+                            document.querySelector(
+                                "#bengali-date p",
+                            ).textContent =
+                                `তারিখ: ${weekday}, ${bengaliDay} ${bengaliMonth}, ${bengaliYear}`;
                         } else {
                             document.getElementById(
                                 "bengali-date",
