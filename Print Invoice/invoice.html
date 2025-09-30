@@ -9,66 +9,6 @@
                 window.print();
             }
         </script>
-        <script>
-            function getBengaliDate() {
-                const days = [
-                    "রবিবার",
-                    "সোমবার",
-                    "মঙ্গলবার",
-                    "বুধবার",
-                    "বৃহস্পতিবার",
-                    "শুক্রবার",
-                    "শনিবার",
-                ];
-                const months = [
-                    "জানুয়ারি",
-                    "ফেব্রুয়ারি",
-                    "মার্চ",
-                    "এপ্রিল",
-                    "মে",
-                    "জুন",
-                    "জুলাই",
-                    "আগস্ট",
-                    "সেপ্টেম্বর",
-                    "অক্টোবর",
-                    "নভেম্বর",
-                    "ডিসেম্বর",
-                ];
-                const bengaliDigits = [
-                    "০",
-                    "১",
-                    "২",
-                    "৩",
-                    "৪",
-                    "৫",
-                    "৬",
-                    "৭",
-                    "৮",
-                    "৯",
-                ];
-
-                function toBengaliNumber(num) {
-                    return num
-                        .toString()
-                        .split("")
-                        .map((d) => bengaliDigits[parseInt(d, 10)] || d)
-                        .join("");
-                }
-
-                const today = new Date();
-                const dayName = days[today.getDay()];
-                const date = toBengaliNumber(today.getDate());
-                const monthName = months[today.getMonth()];
-                const year = toBengaliNumber(today.getFullYear());
-
-                return `${dayName}, ${date} ${monthName}, ${year}`;
-            }
-
-            window.onload = function () {
-                document.getElementById("invoice-date").innerText =
-                    `তারিখ : ${getBengaliDate()}`;
-            };
-        </script>
     </head>
     <body>
         <div class="page">
@@ -152,10 +92,59 @@
                         />
                     </p>
                 </div>
-                <div class="info-right">
-                    <p id="invoice-date" style="color: chocolate"></p>
-                </div>
             </div>
+
+            <div
+                class="date"
+                id="bengali-date"
+                style="width: 160px; color: chocolate"
+            >
+                <p>তারিখ</p>
+            </div>
+            <div class="info-right">
+                <p>
+                    <input type="date" id="date-input" name="date" />
+                </p>
+            </div>
+            <script>
+                // Mapping of Western digits to Bengali digits
+                const bengaliDigits = [
+                    "০",
+                    "১",
+                    "২",
+                    "৩",
+                    "৪",
+                    "৫",
+                    "৬",
+                    "৭",
+                    "৮",
+                    "৯",
+                ];
+
+                function toBengaliNumber(str) {
+                    return str.replace(/\d/g, (d) => bengaliDigits[d]);
+                }
+
+                document
+                    .getElementById("date-input")
+                    .addEventListener("input", function () {
+                        const value = this.value; // Format: yyyy-mm-dd
+                        if (value) {
+                            // Convert each part to Bengali
+                            const parts = value.split("-");
+                            if (parts.length === 3) {
+                                const bengaliDate = `${toBengaliNumber(parts[2])}-${toBengaliNumber(parts[1])}-${toBengaliNumber(parts[0])}`;
+                                document.querySelector(
+                                    "#bengali-date p",
+                                ).textContent = `তারিখ: ${bengaliDate}`;
+                            }
+                        } else {
+                            document.getElementById(
+                                "bengali-date",
+                            ).textContent = "";
+                        }
+                    });
+            </script>
 
             <div class="bill">
                 <table>
