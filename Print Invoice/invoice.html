@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="page">
-            <div style="position: absolute; top: 68px; left: 73px">
+            <div style="position: absolute; top: 72px; left: 78px">
                 <img
                     src="tree.png"
                     alt="tree"
@@ -51,6 +51,13 @@
                     সংলগ্ন, বি-বাড়িয়া<br />
                     মোবাইল: 01719-109810, 01757-728345
                 </p>
+            </div>
+            <div style="position: absolute; top: 72px; left: 758px">
+                <img
+                    src="tree.png"
+                    alt="tree"
+                    style="width: 70px; height: auto"
+                />
             </div>
 
             <div class="info">
@@ -94,11 +101,7 @@
                 </div>
             </div>
 
-            <div
-                class="date"
-                id="bengali-date"
-                style="width: 160px; color: chocolate"
-            >
+            <div class="date" id="bengali-date">
                 <p>তারিখ</p>
             </div>
             <div class="date-picker">
@@ -150,7 +153,7 @@
                 document
                     .getElementById("date-input")
                     .addEventListener("input", function () {
-                        const value = this.value; // Format: yyyy-mm-dd
+                        const value = this.value;
                         if (value) {
                             const [year, month, day] = value
                                 .split("-")
